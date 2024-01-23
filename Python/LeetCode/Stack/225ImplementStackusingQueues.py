@@ -19,4 +19,4 @@ class MyStack:
         return top
 
     def empty(self) -> bool:
-        return len(self.queue) ==0
+        return len(self.queue) == 0
