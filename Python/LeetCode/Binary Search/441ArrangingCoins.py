@@ -16,16 +16,16 @@ class Solution:
 
 class Solution:
     def arrangeCoins(self, n: int) -> int:
-        l,r = 0, n 
+        l, r = 0, n
         res = 0
-        while l<=r:
+        while l <= r:
             mid = (l+r)//2
             co = (mid/2)*(mid+1)
-            if co>n:
+            if co > n:
                 r = mid-1
             else:
                 l = mid+1
-                res = max(res,mid)
+                res = max(res, mid)
         return res
 
 
@@ -45,6 +45,8 @@ from the formula of k = -b + sqrt(b^2 - 4ac)/2a
 k = -1 + sqrt(1-4*1*-2n)/2 >> -1 + sqrt(1+8n)/2
 
 """
+
+
 class Solution:
     def arrangeCoins(self, n: int) -> int:
         return int((-1 + (1 + 8*n) ** 0.5) // 2)
