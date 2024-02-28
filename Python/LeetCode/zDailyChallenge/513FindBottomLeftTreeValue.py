@@ -4,8 +4,11 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+from collections import deque
+
+
 class Solution:
-    def findBottomLeftValue(self, root: Optional[TreeNode]) -> int:
+    def findBottomLeftValue(self, root) -> int:
         q = deque([root])
         while q:
             node = q.popleft()
