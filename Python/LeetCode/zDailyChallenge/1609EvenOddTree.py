@@ -4,8 +4,11 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+from collections import deque
+
+
 class Solution:
-    def isEvenOddTree(self, root: Optional[TreeNode]) -> bool:
+    def isEvenOddTree(self, root) -> bool:
         q = deque([root])
         even = True
         while q:
