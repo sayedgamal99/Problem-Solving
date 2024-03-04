@@ -6,6 +6,20 @@
 #         self.right = right
 
 # iterative Solution using stack:
+class Solution:
+    def inorderTraversal(self, root) -> list[int]:
+        res = []
+        stack = []
+        curr = root
+        while curr or stack:
+            while curr:
+                stack.append(curr)
+                curr = curr.left
+            curr = stack.pop()
+            res.append(curr.val)
+            curr = curr.right
+        return res
+
 
 # recursive solution:
 class Solution:
