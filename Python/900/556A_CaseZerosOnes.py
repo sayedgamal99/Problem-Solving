@@ -1,5 +1,0 @@
-n = input()
-s = input()
-ones = s.count('1')
-zeros = s.count('0')
-print(abs(ones-zeros))
