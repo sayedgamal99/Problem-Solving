@@ -8,9 +8,9 @@ class Solution:
         for i in range(len(arr2)):
             answer.extend([arr2[i]]*freqA[arr2[i]])
             del freqA[arr2[i]]
-        sortedKeys = sorted(freqA)
-        for k in sortedKeys:
-            answer.extend([k]*freqA[k])
+        remaining = sorted(freqA.elements())
+        answer.extend(remaining)
+
         return answer
 
 
