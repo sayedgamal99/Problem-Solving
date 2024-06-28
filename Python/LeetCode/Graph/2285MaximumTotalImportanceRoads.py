@@ -1,6 +1,27 @@
 from collections import defaultdict
 
 
+class SolutionOptimized:
+    def maximumImportance(self, n: int, roads: list[list[int]]) -> int:
+        # Step 1: Count the number of connections (roads) for each node
+        edge_counts = [0] * n
+        for u, v in roads:
+            edge_counts[u] += 1
+            edge_counts[v] += 1
+
+        # Step 2: Sort the connection counts
+        sorted_counts = sorted(edge_counts)
+
+        # Step 3: Calculate the total importance
+        answer = 0
+        label = 1
+        for count in sorted_counts:
+            answer += label * count
+            label += 1
+
+        return answer
+
+
 class Solution:
     def maximumImportance(self, n: int, roads: list[list[int]]) -> int:
         # Step 1: Count connections for each node
@@ -24,9 +45,10 @@ class Solution:
 
 
 # Testing the solution
-test1 = Solution().maximumImportance(
+test1 = SolutionOptimized().maximumImportance(
     n=5, roads=[[0, 1], [1, 2], [2, 3], [0, 2], [1, 3], [2, 4]])
-test2 = Solution().maximumImportance(n=5, roads=[[0, 3], [2, 4], [1, 3]])
+test2 = SolutionOptimized().maximumImportance(
+    n=5, roads=[[0, 3], [2, 4], [1, 3]])
 
 assert test1 == 43, f"Wrong Answer, should be 43 not {test1}"
 assert test2 == 20, f"Wrong Answer, should be 20 not {test2}"
